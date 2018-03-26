@@ -79,10 +79,10 @@ class IndexController extends Controller {
 
 		$id = M('send')->data(array('type'=>$value,'number'=>$num,'address'=>$addr,'time'=>$time,'user_id'=>$uid))->add();
 
-		// $url = "http://c3w.cc/send/api/send_msg?id=".$id;
-		// $res = httpRequest($url);
-
-		echo "OK";
+		$url = "http://c3w.cc/send/api/send_msg?id=".$id;
+		$res = httpRequest($url);
+		echo $res;
+		//echo "OK";
 		
 	}
 	
