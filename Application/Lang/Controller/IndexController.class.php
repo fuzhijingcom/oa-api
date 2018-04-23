@@ -74,7 +74,10 @@ class IndexController extends Controller {
 		$addr = I('addr');
 		$kd = I('kd');
 		$time = I('time');
-
+		if($kd==''){
+			echo "请选择快递类型";
+			exit;
+		}
 		$value = M('kd')->where(array('kuaidi_name'=>$kd))->getField('value');
 
 		$id = M('send')->data(array('type'=>$value,'number'=>$num,'address'=>$addr,'time'=>$time,'user_id'=>$uid))->add();
